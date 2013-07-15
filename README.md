@@ -1,4 +1,4 @@
 meteor-books
 ============
 
-A book recording application designed by Dr. Colin Carroll, implemented in Meteor.
+A meteor implementation of the book recording application by Colin Carroll.
