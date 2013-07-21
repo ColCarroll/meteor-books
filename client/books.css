@@ -1,0 +1,28 @@
+/* CSS declarations go here */
+body{
+  background-image: url("/wood.jpg");
+  padding: 50px;
+  text-align: center;
+}
+
+.book_holder{
+  text-align: left;
+  background-color: #faf1d7;
+  margin: 10px;
+  border-width: 3px;
+  border-color: #000;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.book_holder .title{
+    float: left;
+    text-decoration:underline;
+    font-style: italic;
+}
+.book_holder .author{
+    float: right;
+}
+.clickable{
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+<head>
+  <title>books</title>
+</head>
+
+<body>
+  {{> books_index}}
+</body>
+
+<template name="books_index">
+  <h1>Books</h1>
+  {{#each books}}
+    {{> book}}
+  {{/each}}
+  {{#if show_new_form}}
+    {{> edit_book}}
+  {{else}}
+    {{#if show_add_book}}
+      <div class='row'>
+        <div class='span9'>
+          <button id='add-book'>
+            <i class='icon icon-plus'></i>
+            Add a book
+          </button>
+        </div>
+      </div>
+    {{/if}}
+  {{/if}}
+  </div>
+</template>
+
+<template name='book'>
+    {{#if editing}}
+      {{> edit_book}}
+    {{else}}
+      {{> view_book}}
+    {{/if}}
+</template>
+
+<template name='edit_book'>
+  <div class='row span12 book_holder'>
+    <form class='form'>
+      <div class='row'>
+        <div class='span3'>
+          <input type='text' class='span3' name='title' placeholder="Title" value='{{title}}'/>
+        </div>
+        <div class='span3'>
+          <input type='text' class='span3' name='author' placeholder="Author" value='{{author}}'/>
+        </div>
+      </div>
+      <div class='row span6'>
+        <textarea rows=4 class='span6' placeholder="Description" name='desc'>{{desc}}</textarea>
+      </div>
+      <div class='row span9'>
+        <input type='button' id='submit-edit-book' value='Save' class='btn btn-primary'/>
+        <input type='button' id='cancel-book' value='Cancel' class='btn btn-primary'/>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="view_book">
+  <div class='row span12 book_holder'>
+    <div class='row span9 clickable'>
+      <span class='title'>{{title}}</span>
+      <span class='author'>{{author}}</span>
+    </div>
+    {{#if viewing}}
+      <div class='row span9 clickable'>
+        {{desc}}
+      </div>
+    {{/if}}
+    <div class='row span9'>
+      <button name='edit' class='edit-btn btn btn-primary btn-small'>Edit</button>
+    </div>
+  </div>
+</template>
+
