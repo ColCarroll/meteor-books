@@ -53,6 +53,9 @@
       <div class='row span9'>
         <input type='button' id='submit-edit-book' value='Save' class='btn btn-primary'/>
         <input type='button' id='cancel-book' value='Cancel' class='btn btn-primary'/>
+        {{#if show_delete}}
+        <input type='button' id='delete-book' value='Delete' class = 'btn btn-primary'/>
+        {{/if}}
       </div>
     </form>
   </div>

@@ -16,6 +16,10 @@ if (Meteor.isClient) {
     return Session.get('showing_new_form');
   };
 
+  Template.edit_book.show_delete = function(){
+    return !(Session.get('editing_book') === null);
+  };
+
   Template.books_index.show_add_book = function(){
     return (!Session.get('showing_new_form') && (Session.get('editing_book') === null));
   };
@@ -75,6 +79,10 @@ if (Meteor.isClient) {
           author: author,
           desc: desc});
         Session.set('editing_book', null);
+    },
+    'click #delete-book': function(event, template){
+      Books.remove(Session.get("editing_book"));
+      Session.set('editing_book', null);
     },
     'click #cancel-book': function(event, template){
       Session.set('editing_book', null);
